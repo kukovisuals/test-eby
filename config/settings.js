@@ -1,5 +1,5 @@
 export const settings = {
-    baseUrl: 'http://127.0.0.1:9292/',
+    baseUrl: 'https://shop.join-eby.com/',
     cartApi: '/cart.json',
     timeout: 3000, // Default timeout for actions
 };

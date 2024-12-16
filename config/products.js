@@ -4,7 +4,9 @@ export const products = {
       { name: 'Panty 2', url: '/products/panty-2', size: 'M', expectedProperty: 'x' },
     ],
     bras: [
-      { name: 'Bra 1', url: '/products/bra-1', size: 'L', expectedProperty: 'x' },
+      { name: 'Tangerine Mesh Bralette', 
+        url: '/products/tangerine-mesh-bralette', size: 'L', 
+        expectedProperty: 'Shipping Option', expectedValue: 'Ecommerce WH' },
     ],
     core: [
       { name: 'Core Product 1', url: '/products/core-1', size: 'XL', expectedProperty: 'y' },
