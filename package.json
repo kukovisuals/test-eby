@@ -8,7 +8,8 @@
     "test:headless": "playwright test --headed=false",
     "test:bras": "playwright test tests/categories/bras.test.js",
     "test:panties": "playwright test tests/categories/panties.test.js",
-    "test:cart": "playwright test tests/cart.test.js"
+    "test:cart": "playwright test tests/cart.test.js",
+    "test:add": "playwright test tests/categories/addcart.test.js"
   },
   "keywords": [
     "shopify",

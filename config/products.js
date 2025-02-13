@@ -8,6 +8,11 @@ export const products = {
         url: '/products/tangerine-mesh-bralette', size: 'L', 
         expectedProperty: 'Shipping Option', expectedValue: 'Ecommerce WH' },
     ],
+    mainBras: [
+      { name: 'Nude Bralette', 
+        url: 'products/nude-bralette', size: 'M'
+      },
+    ],
     core: [
       { name: 'Core Product 1', url: '/products/core-1', size: 'XL', expectedProperty: 'y' },
     ],

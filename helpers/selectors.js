@@ -1,4 +1,4 @@
 export const selectors = {
-    sizeSelector: "div.pre-order-products .swatch-element.available",
+    sizeSelector: "div.proVariants .swatch-element.available[data-value='md']",
     addToCartButton: "span#AddToCartText",
 }
