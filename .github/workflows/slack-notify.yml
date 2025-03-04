@@ -2,7 +2,7 @@ name: Playwright Tests
 
 on:
   schedule:
-    - cron: "*/1 * * * *"  # Runs every minute
+    - cron: "0 * * * *"   # Runs every minute
   workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
 
 jobs:
