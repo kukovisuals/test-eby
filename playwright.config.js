@@ -5,7 +5,7 @@ export default {
   timeout: 30000,
   use: {
     baseURL: settings.baseUrl,
-    headless: false,
+    headless: true,
     actionTimeout: settings.timeout,
   },
 };
