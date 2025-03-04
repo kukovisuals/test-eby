@@ -1,0 +1,34 @@
+name: Playwright Tests
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Runs every hour
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install  # Adjust based on your package manager
+
+      - name: Run Playwright tests
+        id: run-tests
+        run: |
+          npx playwright install  # Ensure Playwright is installed
+          npm run test:add
+          
+  notify_failure:
+    needs: test
+    if: failure()  # Runs only if 'test' job fails
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack on Test Failure
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL_FREDDY }}
+          SLACK_CHANNEL: "@freddy"
+          SLACK_MESSAGE: "🚨 Playwright Test Failed in repo: test-eby! Check GitHub Actions for details."
+          SLACK_TITLE: "GitHub Action Test Failure Notification"
