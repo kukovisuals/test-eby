@@ -19,16 +19,15 @@ jobs:
         run: |
           npx playwright install  # Ensure Playwright is installed
           npm run test:add
-          
-  notify_failure:
+
+  notify:
     needs: test
-    if: failure()  # Runs only if 'test' job fails
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Slack on Test Failure
+      - name: Notify Slack on Test Result
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL_FREDDY }}
           SLACK_CHANNEL: "@freddy"
-          SLACK_MESSAGE: "🚨 Playwright Test Failed in repo: test-eby! Check GitHub Actions for details."
-          SLACK_TITLE: "GitHub Action Test Failure Notification"
+          SLACK_MESSAGE: "${{ needs.test.result == 'success' && '✅ Playwright Test Passed: Good' || '🚨 Playwright Test Failed: Bad' }}"
+          SLACK_TITLE: "GitHub Action Test Result"
